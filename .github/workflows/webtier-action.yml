@@ -22,5 +22,5 @@ jobs:
         azcliversion: 2.30.0
         inlineScript: |
           az storage blob upload-batch --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} --account-key ${{ secrets.AZURE_STORAGE_KEY }} --destination '$web' -s './'
-          az cdn endpoint purge -g cloud-shell-storage-southcentralus -n copa-webtier --profile-name copa-cdn --content-paths '/*'
+          az cdn endpoint purge -g ${{ secrets.ACCOUNT_STORAGE_RESOURCE_GROUP }} -n ${{ secrets.CDN_ENDPOINT }} --profile-name ${{ secrets.CDN_NAME }} --content-paths '/*'
 
