@@ -18,4 +18,5 @@ jobs:
       with:
         azcliversion: 2.30.0
         inlineScript: |
-          az storage blob delete-batch -s '$web' --account-name 'cs710032002210946c2' --pattern *
+          az storage blob delete -c '$web' -n index.html
+
