@@ -7,16 +7,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Azure CLI script
-      uses: azure/CLI@v1
-      with:
-        azcliversion: 2.30.0
-        inlineScript: |
-          az storage blob --connection-string ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }} delete -c '$web' -n index.html
-
+      - uses: actions/checkout@v2
+      - uses: bacongobbler/azure-blob-storage-upload@main
+        with:
+          source_dir: 'public'
+          container_name: '$web'
+          connection_string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          sync: 'true'
