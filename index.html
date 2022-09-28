@@ -19,6 +19,7 @@
     <script type="text/javascript" src="mockdata/airports.js"></script>
     <script type="text/javascript" src="mockdata/distance.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+
 </head>
 
 <body>
@@ -136,7 +137,7 @@
     });
 
     function getAirports() {
-        let airportsURL = "http://copatry.brazilsouth.cloudapp.azure.com/airports"
+        let airportsURL = "https://copatry.brazilsouth.cloudapp.azure.com/airports"
 
         fetch(airportsURL)
             .then((response) => response.json())
@@ -216,8 +217,8 @@
     // Get airports distance information:
 
     function fetchDistance(orig, dest) {
-        let host = 'localhost:3000' // copatry.brazilsouth.cloudapp.azure.com
-        let distanceURL = `http://${host}/distance?orig=${orig}&dest=${dest}`;
+        let host = 'copatry.brazilsouth.cloudapp.azure.com'
+        let distanceURL = `https://${host}/distance?orig=${orig}&dest=${dest}`;
 
         return fetch(distanceURL)
             .then((response) => response.json())
