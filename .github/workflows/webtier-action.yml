@@ -18,5 +18,5 @@ jobs:
       with:
         azcliversion: 2.30.0
         inlineScript: |
-          az storage blob download --account-name 'cs710032002210946c2' --account-key 'C4joPA9uE4aajA0msM7s3yXlWmLL5S/SjYoRG+hbiYuW4B/oEVXE7c6Z6rUS8E2WNONmkdsvfwgc+AStgMiO/g==' --container-name '$web' --file index.html --name index.html
+          az storage blob download --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} --account-key ${{ secrets.AZURE_STORAGE_KEY }} --container-name '$web' --file index.html --name index.html
 
