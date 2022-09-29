@@ -140,15 +140,15 @@
         let airportsURL = "https://copatry.brazilsouth.cloudapp.azure.com/airports"
 
         fetch(airportsURL)
-            .then((response) => response.json())
-            .then((data) => {
-                // console.log(data["airports"]);
-                fillAirportsTable(data["airports"]);
-            })
-            .catch((error) => {
-                console.log("Could not retrieve airports: " + error);
-                fillAirportsTable(airports);
-            });
+        .then((response) => response.json())
+        .then((data) => {
+            //console.log(data);
+            fillAirportsTable(data);
+        })
+        .catch((error) => {
+            console.log("Could not retrieve airports: " + error);
+            fillAirportsTable(airports);
+        });
     }
 
     function fillAirportsTable(airportList) {
